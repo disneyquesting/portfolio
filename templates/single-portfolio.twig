@@ -1,0 +1,38 @@
+{% extends 'single.twig' %}
+
+
+{% block headline %}
+{% endblock %}
+{% block metadetails %}
+{% endblock %}
+
+{% block customcontent %}
+    <div class="sitePage">
+        <img src="{{ post.thumbnail.src("large")|towebp }}" alt="{{ post.thumbnail.alt }}"/>
+        <div class="belowContent">
+            <a href="{{ post.site_url }}"><h3>{{ post.title }}</h3></a>
+            <div class="column1">
+                <p>
+                    <a href="{{ post.site_url }}">Visit Website</a>
+                </p>
+                <ul>
+                    <span style="font-weight: bold;">Project Roles:</span>
+                    {% for role in post.terms({query:{taxonomy: 'role', orderby: 'name'}}) %}
+                        <li>{{ role }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="column2">
+                <ul>
+                    <span style="font-weight: bold;">Languages Used:</span>
+                    {% for language in post.terms({query:{taxonomy: 'language', orderby: 'name'}}) %}
+                        <li>{{ language }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="postDetails">
+            {{ post.description }}
+        </div>
+    </div>
+{% endblock %}

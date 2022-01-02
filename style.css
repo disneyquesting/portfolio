@@ -3,3 +3,11 @@
  * Description: Starter Theme to use with Timber
  * Author: Upstatement and YOU!
 */
+
+.mainContent{
+    background: yellow;
+}
+
+.header h1 a{
+    color: red;
+}
