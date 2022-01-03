@@ -159,10 +159,31 @@ class StarterSite extends Timber\Site {
 	 */
 	public function add_to_twig( $twig ) {
 		$twig->addExtension( new Twig\Extension\StringLoaderExtension() );
-		$twig->addFilter( new Twig\TwigFilter( 'myfoo', array( $this, 'myfoo' ) ) );
-		return $twig;
+        $twig->addFunction( new Timber\Twig_Function( 'true_false', 'true_false' ) );
+        return $twig;
 	}
 
 }
 
+
+
+/**
+ * Google Font Additions
+ */
+
+function google_fonts(){
+    wp_enqueue_style('google-fonts','https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;800&display=swap' );
+}
+
+add_action('wp_enqueue_scripts', 'google_fonts', );
+
 new StarterSite();
+
+/**
+ * Add homepage mouseover function
+ */
+
+
+function true_false():bool{
+    return True;
+}

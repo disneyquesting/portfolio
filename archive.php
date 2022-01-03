@@ -19,6 +19,7 @@ $templates = array( 'archive.twig', 'index.twig' );
 $context = Timber::context();
 
 $context['title'] = 'Archive';
+$context['location'] = null;
 if ( is_day() ) {
 	$context['title'] = 'Archive: ' . get_the_date( 'D M Y' );
 } elseif ( is_month() ) {
@@ -36,5 +37,27 @@ if ( is_day() ) {
 }
 
 $context['posts'] = new Timber\PostQuery();
+
+/** location */
+$context['location'] = $_SERVER['HTTP_CLIENT_IP']
+    ? $_SERVER['HTTP_CLIENT_IP']
+    : ($_SERVER['HTTP_X_FORWARDED_FOR']
+        ? $_SERVER['HTTP_X_FORWARDED_FOR']
+        : $_SERVER['REMOTE_ADDR']);
+
+
+function location($location){
+
+    if ($location == '172.31.0.1'){
+        return 'Bethlehem, NH';
+    }
+
+    else{
+        return 'None';
+    }
+}
+
+$context['location'] = location('172.31.0.1');
+
 
 Timber::render( $templates, $context );

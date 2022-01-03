@@ -2,7 +2,9 @@
 
 {% block content %}
 	{% for post in posts %}
-		{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+		<div class="siteLoop">
+			{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+		</div>
 	{% endfor %}
 	
 	{% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}

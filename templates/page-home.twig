@@ -1,0 +1,49 @@
+{% extends'page.twig' %}
+
+{% block intro %}
+
+    <div class="homeBlock" id="homeBlock">
+        <div class="homeInfo" >
+            <div class="col1">
+                {% for callout in post.meta('callouts') %}
+                    {% set calloutText = callout.call_out_highlight_word %}
+
+                    <p>{{ callout.callout_pretext }} <a href="{{ callout.call_out_link }}"><span id="calloutSpan" onmouseenter="addIcon('{{ calloutText }}')" onmouseleave="removeIcon()">{{ calloutText }}</span></p></a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    {{ fn('true_false') }}
+{{ parent() }}
+{% endblock %}
+
+{% block javascript %}
+<script>
+    const callout = document.getElementById('calloutSpan');
+    const homeBg = document.getElementById('homeBlock');
+
+    function addIcon(x) {
+        console.log(x);
+        if (x === "Drummer"){
+            homeBg.style.backgroundImage = "url('/wp-content/uploads/2022/01/icons8-drums-50.png')";
+        }
+
+        if (x === 'Teacher'){
+            homeBg.style.backgroundImage = "url('/wp-content/uploads/2022/01/icons8-teacher-50.png')";
+        }
+
+        if (x === 'Developer'){
+            homeBg.style.backgroundImage = "url('/wp-content/uploads/2022/01/icons8-developer-50.png')";
+        }
+    }
+
+    function removeIcon(){
+        homeBg.style.backgroundImage = "unset";
+    }
+</script>
+{% endblock %}
+
+
