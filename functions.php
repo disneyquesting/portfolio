@@ -173,6 +173,7 @@ class StarterSite extends Timber\Site {
 
 function google_fonts(){
     wp_enqueue_style('google-fonts','https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;800&display=swap' );
+    wp_enqueue_style('google_fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;800&display=swap');
 }
 
 add_action('wp_enqueue_scripts', 'google_fonts', );

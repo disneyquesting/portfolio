@@ -17,11 +17,7 @@ a:hover{
     color: grey;
 }
 
-section{
-    margin-left: 25px;
-    margin-right: 25px;
-    height: 100vh;
-}
+
 
 footer{
     margin-left: 50px;
@@ -41,53 +37,46 @@ footer{
 
 header{
     height: 40px;
-
 }
 
 .headerIntro{
     background-image: linear-gradient(to right, #141e30, #243b55);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: hard-light;
     color: white;
+    display: grid;
+    grid-template-rows: auto auto;
+    transition: background 3s ease-in-out;
 }
-
-.home .headerIntro{
-    height: 75vh;
-}
-
-.homeBlock{
+.row2{
     text-align: center;
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
-    background-repeat: no-repeat;
+
+    padding-top: 75px;
+    padding-bottom: 75px;
 }
 
-.bgInfo{
-    width: 100%;
-    height: 100%;
-    -webkit-transition: opacity 1.5s ease-in-out;
-    -moz-transition: opacity 1.5s ease-in-out;
-    transition: opacity 1.5s ease-in-out;
-    opacity: 0;
-}
 
-.homeInfo p{
+.row2 p{
     font-size: 50px;
     padding: 0px;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
     line-height: 50px;
 }
 
-.homeInfo a{
+.row2 a{
     color: #ADEFD1FF;
     background: #00203FFF;
     padding:5px 15px 5px 15px;
 }
 
-.homeInfo a:hover{
+.row2 a:hover{
     color: #00203FFF;
     background: #ADEFD1FF;
-
     padding-left: 35px;
     padding-right: 35px;
 }
@@ -153,4 +142,37 @@ archive page
 
 .archive .siteLoop img{
     max-width: 250px;
+}
+
+/**
+home page
+ */
+
+.homeContent{
+    margin:50px;
+    font-family: 'Montserrat', sans-serif;
+    display: grid;
+    grid-template-rows: auto auto auto;
+    max-width: 1200px;
+}
+
+.homeContent h2{
+    font-weight: 500;
+}
+
+.homeContent .row3{
+    display: flex;
+}
+.homeContent .article-body{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+}
+
+.homeContent figure img{
+    max-width: 100px;
+    filter: grayscale(1);
+}
+
+.homeContent figure:nth-child(3) img, .homeContent figure:nth-child(4) img{
+    filter:invert(100%);
 }
